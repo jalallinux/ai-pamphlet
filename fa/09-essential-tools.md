@@ -1,8 +1,8 @@
 > [برگشت به فهرست](README.md) · قبلی: [۰۸ — مهندسی پرامپت](08-prompt-engineering.md) · بعدی: [۱۰ — Hooks و Commands](10-hooks-and-commands.md)
 
-# فصل ۰۹ — ۵ MCP و Agent ضروری
+# فصل ۰۹ — ۶ MCP و Agent ضروری
 
-## بخش الف — پنج سرور MCP
+## بخش الف — شش سرور MCP
 
 ### ۱. Context7 — مستندات به‌روز
 
@@ -111,11 +111,34 @@ claude mcp add --scope user sequential-thinking -- npx -y @modelcontextprotocol/
 
 ---
 
+### ۶. Serena — ناوبری معنایی کد
+
+**مشکلی که حل می‌کند:** `grep` متن پیدا می‌کند؛ Serena *نماد* (symbol) پیدا می‌کند. یک Language Server اجرا می‌کند تا Claude بتواند به تعریف یک تابع بپرد، متدهای یک کلاس را فهرست کند، یا همهٔ فراخوان‌کننده‌ها را بیابد — و فقط بدنهٔ همان نماد را بخواند، نه کل فایل را.
+
+```bash
+claude mcp add --scope user serena -- uvx --from git+https://github.com/oraios/serena serena start-mcp-server --context ide-assistant
+```
+
+استفاده:
+
+```
+کلاس AuthService را پیدا کن و فقط متد login آن را نشان بده
+چه نمادهایی به createSession ارجاع می‌دهند؟
+UserRepo را در کل کدبیس به AccountRepo تغییر نام بده
+```
+
+ابزارهای کلیدی: `find_symbol`، `find_referencing_symbols`، `get_symbols_overview`، `replace_symbol_body`، `rename_symbol`؛ به‌علاوهٔ یک سیستم **حافظهٔ پروژه** (`write_memory` / `read_memory`) که یادداشت‌ها را بین سشن‌ها در `.serena/memories/` نگه می‌دارد.
+
+> **چرا برای هزینه مهم است:** در یک ریپوی بزرگ، «کل فایل را بخوان» هزاران توکن می‌سوزاند. Serena فقط همان تابعی را می‌خواند که پرسیده‌اید.
+
+منبع: https://github.com/oraios/serena
+
+---
+
 ### گزینه‌های افتخاری
 
 | سرور | کار | نصب |
 |---|---|---|
-| **Serena** | تحلیل معنایی کد با LSP — به‌جای grep، نماد پیدا می‌کند | https://github.com/oraios/serena |
 | **PostgreSQL/DBHub** | کوئری مستقیم دیتابیس | `npx -y @bytebase/dbhub` |
 | **Figma** | خواندن دیزاین و تبدیل به کد | https://github.com/GLips/Figma-Context-MCP |
 | **Sentry** | خواندن خطاهای production | https://mcp.sentry.dev/mcp |

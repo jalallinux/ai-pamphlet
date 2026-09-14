@@ -20,7 +20,7 @@
 6. [Skills — ساخت و افزودن](06-skills.md)
 7. [`CLAUDE.md` و `AGENTS.md`](07-claude-md-agents-md.md)
 8. [مهندسی پرامپت](08-prompt-engineering.md)
-9. [۵ MCP و Agent ضروری](09-essential-tools.md)
+9. [۶ MCP و Agent ضروری](09-essential-tools.md)
 10. [Hooks و Slash Commands و Settings](10-hooks-and-commands.md)
 11. [ورک‌فلو حرفه‌ای: context، هزینه، امنیت، Git](11-workflow-and-best-practices.md)
 12. [برگهٔ تقلب (Cheatsheet)](12-cheatsheet.md)
