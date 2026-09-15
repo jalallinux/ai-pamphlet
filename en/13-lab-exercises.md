@@ -1,4 +1,4 @@
-> [Back to index](README.md) · Previous: [12 — Cheatsheet](12-cheatsheet.md) · Next: [14 — Sample project](14-sample-project.md)
+> [Back to index](README.md) · Previous: [12 — Cheatsheet](12-cheatsheet.md)
 
 # Chapter 13 — Lab Exercises
 
