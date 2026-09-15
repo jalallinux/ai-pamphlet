@@ -1,4 +1,4 @@
-> [برگشت به فهرست](README.md) · قبلی: [۱۲ — Cheatsheet](12-cheatsheet.md)
+> [برگشت به فهرست](README.md) · قبلی: [۱۲ — Cheatsheet](12-cheatsheet.md) · بعدی: [۱۴ — پروژهٔ نمونه](14-sample-project.md)
 
 # فصل ۱۳ — تمرین‌های کلاس
 

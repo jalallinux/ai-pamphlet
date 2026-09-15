@@ -9,6 +9,7 @@ Classroom handbook. Each chapter is standalone, short, with runnable examples an
 | 1 — Fundamentals | 01, 02, 03, 12 | Install, run, work in Plan Mode |
 | 2 — Customization | 07, 08, 10, 06 | Write a `CLAUDE.md` + one Skill |
 | 3 — Extending | 04, 05, 09, 11, 13 | Install an MCP + build a subagent + labs |
+| 4 — Capstone | 14 | Build the URL shortener end to end |
 
 ## Table of contents
 
@@ -25,6 +26,7 @@ Classroom handbook. Each chapter is standalone, short, with runnable examples an
 11. [Professional workflow: context, cost, security, Git](11-workflow-and-best-practices.md)
 12. [Cheatsheet](12-cheatsheet.md)
 13. [Lab exercises](13-lab-exercises.md)
+14. [Sample project — URL shortener](14-sample-project.md)
 
 ## Mental model (one glance)
 
