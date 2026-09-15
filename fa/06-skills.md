@@ -124,7 +124,7 @@ Run `${CLAUDE_SKILL_DIR}/scripts/render.sh <csv-file>` to render the chart.
 
 استفاده از همان متغیر در هر دو جا → اسکریپت بدون prompt اجازه اجرا می‌شود.
 
-## دو اسکیل عملی برای کلاس
+## سه اسکیل عملی برای کلاس
 
 ### ۱. کامیت استاندارد
 
@@ -180,6 +180,42 @@ Review in this order and stop at the first empty category:
 For each finding: `file:line`, what breaks, and the fix.
 Ignore style the linter already handles. If there is nothing wrong, say so.
 ```
+
+### ۳. graphify — گراف دانش کدبیس
+
+نمونه‌ای از یک **اسکیل بزرگِ نصب‌شده**، نه اسکیلی که خودتان می‌نویسید. دقیقاً نشان می‌دهد progressive disclosure چه چیزی به شما می‌دهد: `SKILL.md` یک رویهٔ طولانی به‌همراه پوشهٔ `references/` است، و هیچ‌کدام وارد context نمی‌شوند مگر وقتی دربارهٔ کدبیس سؤال کنید.
+
+```
+~/.claude/skills/graphify/
+├── SKILL.md
+└── references/
+```
+
+چه می‌کند: یک پوشه از فایل‌ها (کد، مستندات، مقاله، تصویر، ویدیو) را به یک گراف دانش ماندگار تبدیل می‌کند — گره، یال، و تشخیص جامعه (community detection) — و آن را در `graphify-out/` کنار پروژه می‌نویسد.
+
+```bash
+/graphify                      # ساخت گراف از دایرکتوری جاری
+/graphify <path> --update      # فقط فایل‌های تغییرکرده را دوباره استخراج کن
+/graphify query "احراز هویت چطور کار می‌کند؟"
+/graphify path "AuthModule" "Database"
+/graphify explain "SessionStore"
+```
+
+وقتی `graphify-out/graph.json` وجود داشته باشد، یک سؤال ساده مثل «فلوی لاگین چطور کار می‌کند؟» از روی گراف پاسخ داده می‌شود، نه با خواندن دوبارهٔ فایل‌ها.
+
+هر یال یک برچسب حسابرسی دارد — `EXTRACTED` (در منبع پیدا شده)، `INFERRED` (حدس مدل)، یا `AMBIGUOUS` — تا بتوانید واقعیت را از استنتاج تشخیص دهید.
+
+مکمل [Serena](09-essential-tools.md) است: Serena به سؤال‌های *دقیق* دربارهٔ نمادها پاسخ می‌دهد (چه کسی این تابع را صدا می‌زند)؛ graphify به سؤال‌های *ساختاری* (کدام بخش‌های سیستم با هم خوشه می‌شوند).
+
+> **نکتهٔ هزینه:** ساخت اولیه کل corpus را یک‌بار می‌خواند — گران است. کوئری‌های بعدی ارزان‌اند. یک‌بار بساز، بارها کوئری بزن.
+
+اسکیل در اولین اجرا CLI خودش را نصب می‌کند:
+
+```bash
+uv tool install graphifyy
+```
+
+منبع: https://github.com/Graphify-Labs/graphify
 
 ## نصب اسکیل‌های آماده
 

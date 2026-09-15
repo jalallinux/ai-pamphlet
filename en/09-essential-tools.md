@@ -1,8 +1,8 @@
 > [Back to index](README.md) · Previous: [08 — Prompt engineering](08-prompt-engineering.md) · Next: [10 — Hooks and commands](10-hooks-and-commands.md)
 
-# Chapter 09 — 5 Essential MCPs and Agents
+# Chapter 09 — 6 Essential MCPs and Agents
 
-## Part A — Five MCP servers
+## Part A — Six MCP servers
 
 ### 1. Context7 — up-to-date documentation
 
@@ -111,11 +111,34 @@ Source: https://github.com/modelcontextprotocol/servers/tree/main/src/sequential
 
 ---
 
+### 6. Serena — semantic code navigation
+
+**The problem it solves:** `grep` finds text; Serena finds *symbols*. It runs a language server and lets Claude jump to a definition, list a class's methods, or find every caller — reading only the relevant symbol body instead of whole files.
+
+```bash
+claude mcp add --scope user serena -- uvx --from git+https://github.com/oraios/serena serena start-mcp-server --context ide-assistant
+```
+
+Usage:
+
+```
+Find the AuthService class and show only its login method
+Which symbols reference createSession?
+Rename UserRepo to AccountRepo across the codebase
+```
+
+Key tools: `find_symbol`, `find_referencing_symbols`, `get_symbols_overview`, `replace_symbol_body`, `rename_symbol`, plus a project **memory** system (`write_memory` / `read_memory`) that persists notes between sessions in `.serena/memories/`.
+
+> **Why it matters for cost:** on a large repo, "read the whole file" burns thousands of tokens. Serena reads the one function you asked about.
+
+Source: https://github.com/oraios/serena
+
+---
+
 ### Honorable mentions
 
 | Server | What it does | Where |
 |---|---|---|
-| **Serena** | LSP-based semantic code analysis — finds symbols, not just grep hits | https://github.com/oraios/serena |
 | **PostgreSQL/DBHub** | Direct database queries | `npx -y @bytebase/dbhub` |
 | **Figma** | Read designs and convert to code | https://github.com/GLips/Figma-Context-MCP |
 | **Sentry** | Read production errors | https://mcp.sentry.dev/mcp |

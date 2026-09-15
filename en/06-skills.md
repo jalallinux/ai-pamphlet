@@ -124,7 +124,7 @@ Run `${CLAUDE_SKILL_DIR}/scripts/render.sh <csv-file>` to render the chart.
 
 Using the same variable in both places means the script runs without a permission prompt.
 
-## Two practical skills for class
+## Three practical skills for class
 
 ### 1. Conventional commit
 
@@ -180,6 +180,42 @@ Review in this order and stop at the first empty category:
 For each finding: `file:line`, what breaks, and the fix.
 Ignore style the linter already handles. If there is nothing wrong, say so.
 ```
+
+### 3. graphify — a codebase knowledge graph
+
+An example of a **large installed skill** rather than one you write yourself. It shows what progressive disclosure buys you: `SKILL.md` is a long procedure with a `references/` folder, and none of it enters context until you ask a question about the codebase.
+
+```
+~/.claude/skills/graphify/
+├── SKILL.md
+└── references/
+```
+
+What it does: turns a folder of files (code, docs, papers, images, video) into a persistent knowledge graph — nodes, edges, community detection — and writes it to `graphify-out/` next to your project.
+
+```bash
+/graphify                      # build a graph of the current directory
+/graphify <path> --update      # re-extract only changed files
+/graphify query "how does auth work?"
+/graphify path "AuthModule" "Database"
+/graphify explain "SessionStore"
+```
+
+Once `graphify-out/graph.json` exists, a plain question like "how does the login flow work?" is answered from the graph instead of re-reading files.
+
+Each edge carries an audit tag — `EXTRACTED` (found in the source), `INFERRED` (the model's guess), or `AMBIGUOUS` — so you can tell fact from inference.
+
+Complements [Serena](09-essential-tools.md): Serena answers *precise* symbol questions (who calls this function); graphify answers *structural* ones (which parts of this system cluster together).
+
+> **Note on cost:** the initial build reads the whole corpus once — expensive. Queries afterwards are cheap. Build once, query many times.
+
+The skill installs its own CLI on first run:
+
+```bash
+uv tool install graphifyy
+```
+
+Source: https://github.com/Graphify-Labs/graphify
 
 ## Installing ready-made skills
 
