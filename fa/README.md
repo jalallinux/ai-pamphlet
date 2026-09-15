@@ -42,7 +42,7 @@
 
 ## منابع اصلی
 
-- مستندات رسمی Claude Code — https://docs.claude.com/en/docs/claude-code/overview
+- مستندات رسمی Claude Code — https://code.claude.com/docs/en/overview
 - مشخصات MCP — https://modelcontextprotocol.io
 - مهندسی پرامپت Anthropic — https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview
 - استاندارد AGENTS.md — https://agents.md
