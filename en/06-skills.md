@@ -124,7 +124,7 @@ Run `${CLAUDE_SKILL_DIR}/scripts/render.sh <csv-file>` to render the chart.
 
 Using the same variable in both places means the script runs without a permission prompt.
 
-## Two practical skills for class
+## Three practical skills for class
 
 ### 1. Conventional commit
 
@@ -180,6 +180,74 @@ Review in this order and stop at the first empty category:
 For each finding: `file:line`, what breaks, and the fix.
 Ignore style the linter already handles. If there is nothing wrong, say so.
 ```
+
+### 3. graphify — a codebase knowledge graph
+
+The first two skills you write yourself. This one you install — and it's the best demonstration in the pamphlet of *why* progressive disclosure matters.
+
+**What it is.** A large personal skill: a long `SKILL.md` procedure plus a `references/` folder and a Python CLI it installs on demand.
+
+```
+~/.claude/skills/graphify/
+├── SKILL.md          # the procedure
+└── references/       # read only when that branch is taken
+```
+
+None of it occupies context until you ask something about the codebase. Compare that to putting the same procedure in `CLAUDE.md`, where it would cost you tokens in every session forever.
+
+**The problem it solves.** "How does authentication work in this repo?" has no single file to read. Answering it means grep, follow imports, read five files, and rebuild the mental model — *every session*, because the previous session's understanding is gone.
+
+**How it works.** Three stages:
+
+1. **Extract** — walks the folder and pulls out entities and relationships. It handles code, but also Markdown, PDFs, images, and video (via transcription), so design docs and papers land in the same graph as the code.
+2. **Cluster** — community detection groups related nodes, which surfaces connections nobody thought to ask about.
+3. **Persist** — writes `graphify-out/` next to the project: `graph.json`, an interactive HTML view, and a plain-language `GRAPH_REPORT.md`.
+
+Once `graphify-out/graph.json` exists, the skill intercepts codebase questions and answers them from the graph instead of re-reading files.
+
+Every edge carries an audit tag, which is the part worth teaching:
+
+| Tag | Meaning |
+|---|---|
+| `EXTRACTED` | Found literally in the source |
+| `INFERRED` | The model's guess |
+| `AMBIGUOUS` | Could not resolve confidently |
+
+A knowledge graph that can't tell you which edges it made up is a liability. This one can.
+
+**Use it for:**
+- Onboarding to an unfamiliar or inherited codebase
+- Architecture questions that span many files
+- Mixed corpora — code plus specs plus research papers
+- Tracing a path between two concepts you didn't know were connected
+
+**Connect it.** Drop the skill folder in `~/.claude/skills/graphify/`; it installs its own CLI on first run:
+
+```bash
+uv tool install graphifyy
+```
+
+**Use it:**
+
+```bash
+/graphify                          # build a graph of the current directory
+/graphify <path> --update          # re-extract only changed files
+/graphify query "how does auth work?"
+/graphify path "AuthModule" "Database"      # shortest path between two concepts
+/graphify explain "SessionStore"            # plain-language explanation of one node
+```
+
+**How it relates to [Serena](09-essential-tools.md):** both fight the same enemy — reading whole files to answer a small question — from opposite ends.
+
+| | Serena | graphify |
+|---|---|---|
+| Answers | *Precise* questions — who calls this function | *Structural* questions — how do these parts relate |
+| Backed by | A language server, at the moment you ask | A pre-built graph, from an earlier pass |
+| Accuracy | Compiler-exact | Extracted or inferred, and it tells you which |
+
+> **Cost note.** The initial build reads the whole corpus once — expensive. Every query after that is cheap. Build once, query many times.
+
+Source: https://github.com/Graphify-Labs/graphify
 
 ## Installing ready-made skills
 

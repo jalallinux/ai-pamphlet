@@ -11,6 +11,16 @@ With MCP: each tool writes one server, each harness writes one client → M+N.
 
 Introduced by Anthropic in November 2024, now an industry standard (OpenAI, Google, and Microsoft all support it).
 
+The chain, end to end:
+
+```
+You → Coding Agent → MCP Client → MCP Server → the real tool
+                     (built into      (one per     GitHub, browser,
+                      Claude Code)     service)    database, Figma…
+```
+
+The model never touches those services directly — a server always sits in between. That boundary is exactly where you apply access control.
+
 ## An MCP server provides three things
 
 | Kind | What it is | Example |
@@ -160,6 +170,46 @@ In `settings.json`:
 2. **Prompt injection.** An MCP server can return text that looks like an instruction to the model. Treat MCP output as *data*, never as instructions.
 3. **Never commit API keys into `.mcp.json`.** Use `${VAR}`.
 4. **Remove servers you don't need.** Each server adds its tool definitions to context, burning tokens and making the model's tool choice harder.
+
+### A checklist to run before connecting any server
+
+| # | Check | Why |
+|---|---|---|
+| 1 | **Credible maintainer** | Look at who publishes it; prefer official and well-known sources |
+| 2 | **Least privilege** | Enable only the access it actually needs — no broad-scope tokens |
+| 3 | **Read-only where possible** | Grant write access only when the task genuinely requires it |
+| 4 | **Secure tokens** | Environment variables or a secret manager — never a committed file |
+| 5 | **Keep production out** | Don't point an MCP server at a production database; use staging |
+| 6 | **Human approval** | Keep a confirmation step for destructive operations |
+
+Item 6 is enforced in Claude Code through [permission modes](03-modes.md) and `permissions` rules in `settings.json`. Write a `deny` rule for destructive tools — `deny` always beats `allow`:
+
+```json
+{
+  "permissions": {
+    "deny": [
+      "mcp__github__delete_repository",
+      "mcp__db__drop_table"
+    ]
+  }
+}
+```
+
+> MCP security comes down to three things: **access control, transparency, and human oversight.**
+
+## Finding servers
+
+Before writing a server, check whether it already exists. Three places to look, in order:
+
+| Source | What it is | Best for |
+|---|---|---|
+| [Official servers](https://github.com/modelcontextprotocol/servers) | Reference implementations maintained by the MCP project | Filesystem, Git, fetch, sequential thinking — the basics |
+| [MCP Registry](https://registry.modelcontextprotocol.io) | The official searchable index | Checking whether a vendor ships an official server |
+| [**awesome-mcp-servers**](https://github.com/punkpeye/awesome-mcp-servers) | A large community-curated list, grouped by category | Everything else — databases, cloud providers, design tools, niche APIs |
+
+`awesome-mcp-servers` is the widest net: hundreds of servers sorted into categories like databases, browser automation, communication, and finance, each marked by language and by whether it runs locally or remotely.
+
+> **Apply the checklist above.** A community list is a discovery tool, not a security endorsement. Anything you find there gets the same six checks — especially "credible maintainer" and "read-only where possible".
 
 ## Building your own MCP server
 

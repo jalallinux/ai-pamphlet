@@ -20,10 +20,10 @@ Available in two languages, with identical structure and content.
 | 03 | Permission modes — plan, acceptEdits, auto, dontAsk, bypass | [en](en/03-modes.md) | [fa](fa/03-modes.md) |
 | 04 | MCP — transports, scopes, building a server, security | [en](en/04-mcp.md) | [fa](fa/04-mcp.md) |
 | 05 | Subagents — frontmatter, context isolation, 3 ready agents | [en](en/05-subagents.md) | [fa](fa/05-subagents.md) |
-| 06 | Skills — progressive disclosure, shell injection, 2 ready skills | [en](en/06-skills.md) | [fa](fa/06-skills.md) |
+| 06 | Skills — progressive disclosure, shell injection, 3 ready skills | [en](en/06-skills.md) | [fa](fa/06-skills.md) |
 | 07 | `CLAUDE.md` and `AGENTS.md` — hierarchy, imports, `.claude/rules/` | [en](en/07-claude-md-agents-md.md) | [fa](fa/07-claude-md-agents-md.md) |
 | 08 | Prompt engineering — 10 parts, ordered by impact | [en](en/08-prompt-engineering.md) | [fa](fa/08-prompt-engineering.md) |
-| 09 | 5 essential MCPs + spec-driven development | [en](en/09-essential-tools.md) | [fa](fa/09-essential-tools.md) |
+| 09 | 6 essential MCPs + spec-driven development | [en](en/09-essential-tools.md) | [fa](fa/09-essential-tools.md) |
 | 10 | Hooks, settings, slash commands, plugins | [en](en/10-hooks-and-commands.md) | [fa](fa/10-hooks-and-commands.md) |
 | 11 | Workflow — context, cost, Git, security, 4 patterns | [en](en/11-workflow-and-best-practices.md) | [fa](fa/11-workflow-and-best-practices.md) |
 | 12 | Cheatsheet (printable, one page) | [en](en/12-cheatsheet.md) | [fa](fa/12-cheatsheet.md) |

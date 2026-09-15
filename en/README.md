@@ -20,7 +20,7 @@ Classroom handbook. Each chapter is standalone, short, with runnable examples an
 6. [Skills — creating and adding them](06-skills.md)
 7. [`CLAUDE.md` and `AGENTS.md`](07-claude-md-agents-md.md)
 8. [Prompt engineering](08-prompt-engineering.md)
-9. [5 essential MCPs and agents](09-essential-tools.md)
+9. [6 essential MCPs and agents](09-essential-tools.md)
 10. [Hooks, Slash Commands, and Settings](10-hooks-and-commands.md)
 11. [Professional workflow: context, cost, security, Git](11-workflow-and-best-practices.md)
 12. [Cheatsheet](12-cheatsheet.md)
