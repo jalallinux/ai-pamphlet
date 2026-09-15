@@ -28,7 +28,6 @@ Available in two languages, with identical structure and content.
 | 11 | Workflow — context, cost, Git, security, 4 patterns | [en](en/11-workflow-and-best-practices.md) | [fa](fa/11-workflow-and-best-practices.md) |
 | 12 | Cheatsheet (printable, one page) | [en](en/12-cheatsheet.md) | [fa](fa/12-cheatsheet.md) |
 | 13 | 10 lab exercises + assessment rubric | [en](en/13-lab-exercises.md) | [fa](fa/13-lab-exercises.md) |
-| 14 | Sample project — URL shortener, 10 steps, zero dependencies | [en](en/14-sample-project.md) | [fa](fa/14-sample-project.md) |
 
 ---
 
@@ -41,11 +40,8 @@ Three sessions, roughly two hours each.
 | **1 — Fundamentals** | 01, 02, 03, 12 | Install, run a first session, work in Plan Mode |
 | **2 — Customization** | 07, 08, 10, 06 | Write a `CLAUDE.md` and one Skill |
 | **3 — Extending** | 04, 05, 09, 11, 13 | Install an MCP, build a subagent, run the labs |
-| **4 — Capstone** | 14 | Build the URL shortener end to end |
 
 The labs in chapter 13 are ordered to build on each other. Labs 1–4 fit session 1–2; labs 5–10 fit session 3 and homework.
-
-Chapter 14 is one continuous project that uses every chapter once. It fits a fourth session, or a take-home assignment after session 3.
 
 ---
 
@@ -70,12 +66,12 @@ Harness (Claude Code / Codex)
 ```
 .
 ├── README.md      ← you are here
-├── en/            English notes (15 files)
+├── en/            English notes (14 files)
 │   ├── README.md  English index
-│   └── 01..14     chapters
-└── fa/            Persian notes (15 files)
+│   └── 01..13     chapters
+└── fa/            Persian notes (14 files)
     ├── README.md  فهرست فارسی
-    └── 01..14     فصل‌ها
+    └── 01..13     فصل‌ها
 ```
 
 Every chapter links to the previous and next one, and back to its language index.
@@ -87,7 +83,6 @@ Every chapter links to the previous and next one, and back to its language index
 - **Chapters 04, 05, 06, 07, and 10** were written against the live docs at `code.claude.com`, so the CLI syntax and frontmatter fields are exact. Everything else is conceptual and ages more slowly.
 - **Labs 5 and 7** require `jq` installed and a session restart. Run them yourself once before class.
 - **Lab 2** clones a public repo; make sure the room has network access, or pre-clone it.
-- **Chapter 14** needs Node 22+ for `node:sqlite` (`--experimental-sqlite` on 22, stable on 24). Check `node --version` in the room before class; on Node 20 or older, substitute `express` + `better-sqlite3` — the steps are unchanged. The `node:sqlite` calls in that chapter were run and verified on Node 22.23.
 - Anthropic moved its Claude Code docs from `docs.claude.com/en/docs/claude-code/*` to `code.claude.com/docs/en/*`. The new URLs are used throughout.
 - Chapter 12 is designed to be printed and handed out.
 

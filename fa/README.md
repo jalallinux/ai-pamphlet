@@ -9,7 +9,6 @@
 | جلسه ۱ — مبانی | ۰۱، ۰۲، ۰۳، ۱۲ | نصب، اجرا، کار با Plan Mode |
 | جلسه ۲ — شخصی‌سازی | ۰۷، ۰۸، ۱۰، ۰۶ | نوشتن `CLAUDE.md` + یک Skill |
 | جلسه ۳ — توسعهٔ قابلیت | ۰۴، ۰۵، ۰۹، ۱۱، ۱۳ | نصب MCP + ساخت Subagent + تمرین‌ها |
-| جلسه ۴ — پروژهٔ پایانی | ۱۴ | ساخت کوتاه‌کنندهٔ لینک از صفر تا commit |
 
 ## فهرست فصل‌ها
 
@@ -26,7 +25,6 @@
 11. [ورک‌فلو حرفه‌ای: context، هزینه، امنیت، Git](11-workflow-and-best-practices.md)
 12. [برگهٔ تقلب (Cheatsheet)](12-cheatsheet.md)
 13. [تمرین‌های کلاس](13-lab-exercises.md)
-14. [پروژهٔ نمونه — کوتاه‌کنندهٔ لینک](14-sample-project.md)
 
 ## نقشهٔ ذهنی (یک نگاه)
 
@@ -44,7 +42,7 @@
 
 ## منابع اصلی
 
-- مستندات رسمی Claude Code — https://docs.claude.com/en/docs/claude-code/overview
+- مستندات رسمی Claude Code — https://code.claude.com/docs/en/overview
 - مشخصات MCP — https://modelcontextprotocol.io
 - مهندسی پرامپت Anthropic — https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview
 - استاندارد AGENTS.md — https://agents.md
