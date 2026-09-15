@@ -34,7 +34,7 @@ Available in two languages, with identical structure and content.
 
 ## Suggested schedule
 
-Three sessions, roughly two hours each.
+Four sessions, roughly two hours each.
 
 | Session | Chapters | Hands-on outcome |
 |---|---|---|

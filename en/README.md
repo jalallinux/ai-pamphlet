@@ -2,7 +2,7 @@
 
 Classroom handbook. Each chapter is standalone, short, with runnable examples and links to official sources.
 
-## Suggested schedule (3 sessions)
+## Suggested schedule (4 sessions)
 
 | Session | Chapters | Hands-on outcome |
 |---|---|---|

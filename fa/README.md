@@ -2,7 +2,7 @@
 
 جزوهٔ کلاسی. هر فصل مستقل، کوتاه، با مثال اجرایی و لینک منبع رسمی.
 
-## مسیر پیشنهادی کلاس (۳ جلسه)
+## مسیر پیشنهادی کلاس (۴ جلسه)
 
 | جلسه | فصل‌ها | خروجی عملی |
 |---|---|---|
@@ -44,7 +44,7 @@
 
 ## منابع اصلی
 
-- مستندات رسمی Claude Code — https://docs.claude.com/en/docs/claude-code/overview
+- مستندات رسمی Claude Code — https://code.claude.com/docs/en/overview
 - مشخصات MCP — https://modelcontextprotocol.io
 - مهندسی پرامپت Anthropic — https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview
 - استاندارد AGENTS.md — https://agents.md
